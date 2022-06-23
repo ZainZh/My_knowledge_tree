@@ -2,6 +2,6 @@
 
 - image processing 
 
-  - Resnet (./Image_processing/Resnet)
+  - [Resnet] (https://github.com/ZaneZh/Read-more-papers/blob/main/paper/Image%20Processing/Resnet.md)
 
   
