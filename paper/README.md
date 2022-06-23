@@ -2,6 +2,6 @@
 
 - image processing 
 
-  - Resnet (./image_processing/Resnet)
+  - Resnet (./Image_processing/Resnet)
 
   
