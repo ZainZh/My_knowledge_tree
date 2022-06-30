@@ -1,4 +1,4 @@
-# **Conservative Q-Learning **for Offlfline Reinforcement Learning
+# **Conservative Q-Learning for Offlfline Reinforcement Learning
 
 
 
@@ -40,7 +40,7 @@
 
    通常，在Q-learning 方法中，我们通过对贝尔曼最优算子（Func 1）的迭代来得到一个能使Q值最大的策略，然后在通过贪心算法（将这个策略带回去找action,在找能使该action发生概率最大的策略）来不断优化这个策略
 
-   <img src="pics/image-20220629144025682.png" alt="image-20220629144025682" style="zoom: 67%;" />
+   <img src="pics/image-20220629144025682.png" alt="image-20220629144025682" style="zoom: 40%;" />
 
    ​                                                  Func 1. 贝尔曼最优算子，reward加上系数 $y$  乘 能使接下来的动作Q值最大的 S-R映射的期望。
 
@@ -48,9 +48,9 @@
 
    通常，在 Actor-critic 方法中，有一个单独的策略来训练使 Q值最大。再通过贝尔曼算子对策略进行提升。提升的方式就是通过不断地更新action来最大化期望的Q值。
 
-   <img src="pics/image-20220629145054800.png" alt="image-20220629145054800" style="zoom:50%;" />
+   <img src="pics/image-20220629145054800.png" alt="image-20220629145054800" style="zoom:40%;" />
 
-   <img src="pics/image-20220629145109108.png" alt="image-20220629145109108" style="zoom:50%;" />
+   <img src="pics/image-20220629145109108.png" alt="image-20220629145109108" style="zoom:40%;" />
 
    因为我们是在数据集 $D$ 中进行训练，而 $D$ 不可能包含所有的 $ (s,a,s^{'})$ 映射，所有我们得到的策略是一种基于数据集的经验策略 $ \hat{\pi}^k$。但是在策略改进的过程中，因为为了获得最大的Q值，就有可能错误的指向到可以获得高Q值得分布外行为。
 
@@ -60,7 +60,7 @@
 
    所以为了阻止策略值的过估计，本文通过Q值最小化并加上了一个标准的贝尔曼误差 来设计了一个十分保守的低下界的Q-function。所以我们选择是在特定的state-action分布 $\mu(s,a)$ 下最小化期望的Q值。因为在Q-function训练不会检索未观测到的states,但是会检索未见到的action。 所以我们把 $\mu$ 限制在数据集的边缘状态。   $\mu(s,a)=$  $d^{\pi\beta}$ $\mu (a|s)$  
 
-   <img src="pics/tempsnip.png" alt="tempsnip" style="zoom:67%;" />
+   <img src="pics/tempsnip.png" alt="tempsnip" style="zoom:40%;" />
 
    红框为最小化的Q值函数。绿框为标准贝尔曼误差。 因为我们最小化了Q值函数，所以可以保证在边界内。
 
