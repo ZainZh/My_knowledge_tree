@@ -1,3 +1,4 @@
+
 # IsaacGym安装与简单使用
 
 
@@ -33,13 +34,13 @@ IsaacGym 是一个通过端到端GPU加速提供强化学习计算的平台。�
 
 > https://developer.nvidia.com/isaac-gym
 
-1.虽然是免费软件，但是也要加入Nvidia会员，点击页面中间Member area进行注册下载。
+1. 虽然是免费软件，但是也要加入Nvidia会员，点击页面中间Member area进行注册下载。
 
-<img src="pics/截屏2022-07-05 下午9.47.21 (2).png" alt="截屏2022-07-05 下午9.47.21 (2)" style="zoom:50%;" />
+<img src="pics/截屏2022-07-05 下午9.47.21 (2).png" alt="截屏2022-07-05 下午9.47.21 (2![Image](https://pic4.zhimg.com/80/v2-1d3a53ec188840eb21573513e859570e.png))" style="zoom:50%;" />
 
-2.进入后点击绿色下载按钮进行下载。
+2. 进入后点击绿色下载按钮进行下载。
 
-<img src="pics/截屏2022-07-05 下午9.49.18 (2).png" alt="截屏2022-07-05 下午9.49.18 (2)" style="zoom:50%;" />
+<img src="pics/截屏2022-07-05 下午9.49.18 (2).png" alt="截屏2022-07-05 下午9.49.18![Image](https://pic4.zhimg.com/80/v2-ea0c5239eb3b4aaa917f3c29f9be33da.png) (2)" style="zoom:50%;" />
 
 3. 安装PyTorch (https://pytorch.org/get-started/locally/)
 
@@ -65,7 +66,9 @@ IsaacGym 是一个通过端到端GPU加速提供强化学习计算的平台。�
 
    > cd examples && python ant.py num_envs=9
 
-​		如果出来一堆小蚂蚁的界面。 恭喜你安装成功。
+      如果出来一堆小蚂蚁的界面。 恭喜你安装成功。
+
+
 
 6. 安装强化学习范例
 
@@ -82,8 +85,8 @@ IsaacGym 是一个通过端到端GPU加速提供强化学习计算的平台。�
    同样的，安装好后
 
    > python train.py task=FrankaCabinet headless=False num_envs=9
-
-​	   如果能看到9个机械臂在训练拉柜子的画面，congrats!
+   
+   如果能看到9个机械臂在训练拉柜子的画面，congrats!
 
  7. 开发文档
 
