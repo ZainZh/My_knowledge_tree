@@ -40,10 +40,36 @@
 
    ## 最大熵强化学习
 
-   标准的RL通常为了得到一个最大化的奖励
+   标准的RL通常为了得到一个最大化的奖励 $\sum E_{(s_t ,a_t)~p_\pi}[r(s_t,a_t)]$ ,而在SAC中，为了扩展到最大熵项，奖励项被写成
 
-   ## offline RL 的CQL 框架
+   <img src="pics/image-20220705032514448.png" alt="image-20220705032514448" style="zoom:60%;" />
 
-   根据上两式，可以通过使 $\mu=\pi$ 来解出能使Q值逼近下界Q的策略 $\pi$， 我们不再通过用一步策略评估获得策略，然后再用一步策略提升改进策略。取而代之的是。 我们用我们从Fun 2中获得策略 $\pi$ 来获得最大的 Q值。 也可以加一个正则项变成CQL（R)
+   $\alpha$ 项为温度系数，用来控制熵项相对于奖励的重要性，从而控制最优策略的随机性。该算法的优势在于被激励去更广泛的探索，同时还会放弃明显没有希望的途径。同时，这个策略可以捕获接近最优策略的行为。我们观察到，就算与传统RL下效果最好的算法相比，SAC也大大提高了学习的速度。据我们所知，我们的方法是最大熵强化学习框架中的第一个off-policy Actor-Critic方法。
 
-   <img src="pics/image-20220629154529726.png" alt="image-20220629154529726" style="zoom:67%;" />
+   ## 从Soft policy iteration 到SAC
+   
+   原本Q-value的函数是这样的。
+   
+   <img src="pics/image-20220705114601867.png" alt="image-20220705114601867" style="zoom:60%;" />
+   
+   我们将定义一个参数化的状态值函数 $V_{\psi}s_t$，软q函数 $Q_{\theta}(s_t,a_t)$ 和一个，和一个易于处理的策略 $\pi_{\phi}(a_t|s_t)$ 这些网络的参数分别为 $\psi,\theta,\phi$ 。
+   
+   状态值函数被用于训练减小平方残差，其中D为replay_buffer
+   
+   <img src="pics/image-20220705115716646.png" alt="image-20220705115716646" style="zoom:60%;" />
+   
+   而上式的梯度可以被下面的无偏移估计式子所表示。
+   
+   <img src="pics/image-20220705120042265.png" alt="image-20220705120042265" style="zoom:60%;" />
+   
+   这个时候action是从当前学习到的政策中来提取。
+   
+   而Q-value是用来训练使得soft bellman residual残差最小
+   
+   <img src="pics/image-20220705120317288.png" alt="image-20220705120317288" style="zoom:60%;" />
+   
+   通过对网络不断地加深迭代。我们得到了SAC算法。
+   
+   <img src="pics/image-20220705120420728.png" alt="image-20220705120420728" style="zoom:60%;" />
+   
+   
