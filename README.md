@@ -13,7 +13,7 @@ I am newer to RL and Robotics. This is my private growing Knowledge tree. This r
     - [Reinforcement learning](./paper/Reinforcement_Learning)
         - [CQL](./paper/Reinforcement_Learning/CQL/CQL.md)
         - [SAC](./paper/Reinforcement_Learning/SAC/SAC.md)
-  - [Project](./Projects)
+  - [Project](./Project)
 ---
 This is ONLY my own basic knowledge study record. Because of the limitations of my knowledge, there are maybe some mistakes. I will fix them as soon as possible. If you have some advice, please feel free to contact me!
 
