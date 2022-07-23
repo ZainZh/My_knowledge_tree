@@ -14,6 +14,9 @@
   - [第二训练轮](#第二训练轮)
     - [参数](#参数-2)
     - [结果](#结果-2)
+  - [第三训练轮](#第三训练轮)
+    - [参数](#参数-3)
+    - [结果](#结果-3)
   - [参考链接](#参考链接)
 
 ## 影响SAC算法的训练参数
@@ -91,8 +94,8 @@
 ### 结果
 |  结果 | 描述 |
 |---|---|
-| 结果 |  |
-
+| 结果 |  训练中|
+![Image](https://pic4.zhimg.com/80/v2-21d4379534f7dfef0a85f1ba8a9ac05f.png)
 ## 第二训练轮
 ### 参数
 |  参数名 | 数值 |
@@ -110,8 +113,31 @@
 ### 结果
 |  结果 | 描述 |
 |---|---|
+| 结果 | false |
+|reward|500|
+![Image](https://pic4.zhimg.com/80/v2-b605deafab686b180adcad7c5ab95a91.png)
+可能是网络选取问题，elu更好
+——————————————————————————————————
+我自己把alpha lr 写成了564e-3
+## 第三训练轮
+### 参数
+|  参数名 | 数值 |
+|---|---|
+| gamma | 0.96 |
+| batch size |2048  |
+|  replaybuffer size|2^18 |
+| actor learning rate |1e-5  |
+|  critic learning rate| 1e-5 |
+| alpha learning rate | 1e-5 |
+| target entropy coef | 0.1|
+| reward scale|0.05|
+|activate|elu|
+|layer|[256,128,64]|
+和第一轮相比，学习率减小了。
+### 结果
+|  结果 | 描述 |
+|---|---|
 | 结果 |  |
-
 ## 参考链接
 曾伊言：
 > https://zhuanlan.zhihu.com/p/345353294
